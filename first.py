@@ -9,4 +9,3 @@ with open("input.txt") as openFile:
 wordList = list(itertools.chain(*wordList))
 countedWords = Counter(wordList)
 print(countedWords)
-

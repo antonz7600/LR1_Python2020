@@ -36,9 +36,16 @@ print(test_arr)
 print("Sorted:")
 mergesort(test_arr)
 print(test_arr)
-file_name = "input4.txt"
-with open(file_name) as openFile:
-    test_arr = [[int(x) for x in line.split()] for line in openFile]
+try:
+    file_name = "input4.txt"
+    with open(file_name) as openFile:
+        test_arr = [[int(x) for x in line.split()] for line in openFile]
+except FileNotFoundError:
+    print("Incorrect file!")
+    exit(-1)
+except ValueError:
+    print("Incorrect input!")
+    exit(-1)
 test_arr = list(itertools.chain(*test_arr))
 print("Unsorted:")
 print(test_arr)

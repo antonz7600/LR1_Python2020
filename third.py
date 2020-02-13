@@ -35,8 +35,15 @@ print("Sorted:")
 print(test_arr)
 file_name = "input4.txt"
 print("Unsorted:")
-with open(file_name) as openFile:
-    test_arr = [[int(x) for x in line.split()] for line in openFile]
+try:
+    with open(file_name) as openFile:
+        test_arr = [[int(x) for x in line.split()] for line in openFile]
+except FileNotFoundError:
+    print("Incorrect file!")
+    exit(-1)
+except ValueError:
+    print("Incorrect input!")
+    exit(-1)
 test_arr = list(itertools.chain(*test_arr))
 print(test_arr)
 qsort(test_arr, 0, len(test_arr) - 1)
