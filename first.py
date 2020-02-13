@@ -2,10 +2,12 @@ import itertools
 import re
 from collections import Counter
 
-wordList = list()
-with open("input.txt") as openFile:
-    for line in openFile:
-        wordList.append(re.sub(r'[,.!?;\"]', "", line.strip(), count=0).split(' '))
-wordList = list(itertools.chain(*wordList))
-countedWords = Counter(wordList)
-print(countedWords)
+
+def first(filename):
+    word_list = list()
+    with open(filename) as openFile:
+        for line in openFile:
+            word_list.append(re.sub(r'[,.!?;\"]', "", line.strip(), count=0).split(' '))
+    word_list = list(itertools.chain(*word_list))
+    counted_words = Counter(word_list)
+    print(counted_words)

@@ -30,25 +30,30 @@ def mergesort(arr):
             k += 1
 
 
-test_arr = [random.randint(0, 10000) for num in range(100)]
-print("Unsorted:")
-print(test_arr)
-print("Sorted:")
-mergesort(test_arr)
-print(test_arr)
-try:
-    file_name = "input4.txt"
-    with open(file_name) as openFile:
-        test_arr = [[int(x) for x in line.split()] for line in openFile]
-except FileNotFoundError:
-    print("Incorrect file!")
-    exit(-1)
-except ValueError:
-    print("Incorrect input!")
-    exit(-1)
-test_arr = list(itertools.chain(*test_arr))
-print("Unsorted:")
-print(test_arr)
-print("Sorted:")
-mergesort(test_arr)
-print(test_arr)
+def fourth(file_name):
+    try:
+        # file_name = "input4.txt"
+        with open(file_name) as openFile:
+            test_arr = [[int(x) for x in line.split()] for line in openFile]
+    except FileNotFoundError:
+        print("Incorrect file!")
+        exit(-1)
+    except ValueError:
+        print("Incorrect input!")
+        exit(-1)
+    test_arr = list(itertools.chain(*test_arr))
+    print("Unsorted:")
+    print(test_arr)
+    print("Sorted:")
+    mergesort(test_arr)
+    print(test_arr)
+
+
+
+
+# test_arr = [random.randint(0, 10000) for num in range(100)]
+# print("Unsorted:")
+# print(test_arr)
+# print("Sorted:")
+# mergesort(test_arr)
+# print(test_arr)

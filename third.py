@@ -1,5 +1,4 @@
 import itertools
-import random
 
 
 def qsort(arr, first, last):
@@ -27,25 +26,19 @@ def qsort(arr, first, last):
     qsort(arr, i, last)
 
 
-test_arr = [random.randint(0, 10000) for num in range(100000)]
-print("Unsorted:")
-print(test_arr)
-qsort(test_arr, 0, len(test_arr) - 1)
-print("Sorted:")
-print(test_arr)
-file_name = "input4.txt"
-print("Unsorted:")
-try:
-    with open(file_name) as openFile:
-        test_arr = [[int(x) for x in line.split()] for line in openFile]
-except FileNotFoundError:
-    print("Incorrect file!")
-    exit(-1)
-except ValueError:
-    print("Incorrect input!")
-    exit(-1)
-test_arr = list(itertools.chain(*test_arr))
-print(test_arr)
-qsort(test_arr, 0, len(test_arr) - 1)
-print("Sorted:")
-print(test_arr)
+def third(file_name):
+    print("Unsorted:")
+    try:
+        with open(file_name) as openFile:
+            test_arr = [[int(x) for x in line.split()] for line in openFile]
+    except FileNotFoundError:
+        print("Incorrect file!")
+        exit(-1)
+    except ValueError:
+        print("Incorrect input!")
+        exit(-1)
+    test_arr = list(itertools.chain(*test_arr))
+    print(test_arr)
+    qsort(test_arr, 0, len(test_arr) - 1)
+    print("Sorted:")
+    print(test_arr)

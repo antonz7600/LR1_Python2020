@@ -2,14 +2,16 @@ import itertools
 import re
 from collections import Counter
 
-wordList = list()
-with open("input.txt") as openFile:
-    for line in openFile:
-        wordList.append(re.sub(r'[,.!?;\"]', "", line.strip(), count=0).split(' '))
-wordList = list(itertools.chain(*wordList))
-countedWords = Counter(wordList)
-finString = ""
-for word, count in countedWords.most_common(10):
-    finString += word + " "
-finString = finString.capitalize()
-print(finString)
+
+def second(file_name):
+    word_list = list()
+    with open(file_name) as openFile:
+        for line in openFile:
+            word_list.append(re.sub(r'[,.!?;\"]', "", line.strip(), count=0).split(' '))
+    word_list = list(itertools.chain(*word_list))
+    counted_words = Counter(word_list)
+    fin_string = ""
+    for word, count in counted_words.most_common(10):
+        fin_string += word + " "
+    fin_string = fin_string.capitalize()
+    print(fin_string)
