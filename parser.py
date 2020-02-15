@@ -20,7 +20,6 @@ List of modules:
     6. fib_gen - calculating fibonacci with a help of golden ring. Starts with 0,1
 
 """
-
 parser = argparse.ArgumentParser()
 parser.add_argument('module_name', type=str, help='Input module name')
 parser.add_argument('input_file', type=str, help='Input file location')
